@@ -1,0 +1,8 @@
+nginx 8080
+jellyfin 8081
+vaultwarden 8082
+gitea 8083 e 2222
+transmission 8084, 51413 e 51413/udp
+retroarch 8085
+phpmyadmin 8086
+nextcloud 8087

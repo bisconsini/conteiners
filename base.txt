@@ -1,0 +1,10 @@
+apt install --no-install-recommends docker.io docker-compose docker-cli
+usermod -aG docker ricardo
+mkdir -p /arquivos/publicos/docker/{engine,compose,backup,script}
+chmod -R 777 /arquivos/publicos/docker
+
+cat <<EOF > /etc/docker/daemon.json
+{
+    "data-root": "/arquivos/publicos/docker/engine"
+}
+EOF
