@@ -26,6 +26,13 @@ services:
       - 8083:3000
       - 2222:2222
       
+    labels:
+      - homepage.group=Desenvolvimento
+      - homepage.name=Gitea
+      - homepage.icon=gitea.png
+      - homepage.href=http://localhost:8083
+      - homepage.description=Servidor Git pessoal
+      
     restart: unless-stopped
 EOF
 #[--------------------------------------------------------------------------------------------]  

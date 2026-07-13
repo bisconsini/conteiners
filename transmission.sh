@@ -29,6 +29,13 @@ services:
       - 51413:51413
       - 51413:51413/udp
       
+    labels:
+      - homepage.group=Downloads
+      - homepage.name=Transmission
+      - homepage.icon=transmission.png
+      - homepage.href=http://localhost:8084
+      - homepage.description=Cliente Torrent
+      
     restart: unless-stopped
 EOF
 #[--------------------------------------------------------------------------------------------]    

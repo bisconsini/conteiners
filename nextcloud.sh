@@ -57,6 +57,13 @@ services:
       MYSQL_PASSWORD: minhasenha
       MYSQL_HOST: nextcloud-mariadb
       REDIS_HOST: nextcloud-redis
+      
+    labels:
+      - homepage.group=Cloud
+      - homepage.name=Nextcloud
+      - homepage.icon=nextcloud.png
+      - homepage.href=http://localhost:8087
+      - homepage.description=Nuvem pessoal
 
     restart: unless-stopped
 EOF

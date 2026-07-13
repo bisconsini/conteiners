@@ -20,6 +20,13 @@ services:
     ports:
       - 8080:80
       
+    labels:
+      - homepage.group=Web
+      - homepage.name=Nginx
+      - homepage.icon=nginx.png
+      - homepage.href=http://localhost:8080
+      - homepage.description=Servidor Web
+      
     restart: unless-stopped
 EOF
 #[--------------------------------------------------------------------------------------------]    

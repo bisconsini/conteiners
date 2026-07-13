@@ -26,6 +26,13 @@ services:
       - 8085:3000
       
     shm_size: 1gb
+    
+    labels:
+      - homepage.group=Jogos
+      - homepage.name=RetroArch
+      - homepage.icon=retroarch.png
+      - homepage.href=http://localhost:8085
+      - homepage.description=Emuladores
         
     restart: unless-stopped
 EOF

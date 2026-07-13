@@ -22,6 +22,13 @@ services:
     networks:
       - backend
 
+    labels:
+      - homepage.group=Bancos
+      - homepage.name=phpMyAdmin
+      - homepage.icon=phpmyadmin.png
+      - homepage.href=http://localhost:8086
+      - homepage.description=Administração MariaDB/MySQL
+
     restart: unless-stopped
 
 networks:

@@ -27,6 +27,13 @@ services:
       - 8081:8096
     
     user: 1001:1001
+    
+    labels:
+      - homepage.group=Mídia
+      - homepage.name=Jellyfin
+      - homepage.icon=jellyfin.png
+      - homepage.href=http://localhost:8081
+      - homepage.description=Servidor de mídia
 
     restart: unless-stopped
 EOF

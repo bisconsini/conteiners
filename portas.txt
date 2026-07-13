@@ -6,3 +6,4 @@ transmission 8084, 51413 e 51413/udp
 retroarch 8085
 phpmyadmin 8086
 nextcloud 8087
+homepage 8088

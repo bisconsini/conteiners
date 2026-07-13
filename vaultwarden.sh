@@ -20,6 +20,13 @@ services:
       
     ports:
       - 8082:80
+      
+    labels:
+      - homepage.group=Serviços
+      - homepage.name=Vaultwarden
+      - homepage.icon=vaultwarden.png
+      - homepage.href=http://localhost:8082
+      - homepage.description=Gerenciador de senhas
         
     restart: unless-stopped
 EOF
