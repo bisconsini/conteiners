@@ -10,19 +10,19 @@ cd /arquivos/publicos/docker/compose/dockge/
 cat <<EOF > /arquivos/publicos/docker/compose/dockge/compose.yaml
 services:
   dockge:
-    image: ghcr.io/louislam/dockge:1
+    image: louislam/dockge:1
     container_name: dockge
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /arquivos/publicos/docker/compose:/opt/stacks
       - ./data:/app/data
+      - /arquivos/publicos/docker/compose:/arquivos/publicos/docker/compose
       
     ports:
       - 8092:5001
       
     environment:
-      - DOCKGE_STACKS_DIR=/opt/stacks
+      - DOCKGE_STACKS_DIR=/arquivos/publicos/docker/compose
     
     restart: unless-stopped
 EOF
