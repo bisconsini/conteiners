@@ -2,37 +2,39 @@
 
 set -e
 #[--------------------------------------------------------------------------------------------]
-mkdir -p /arquivos/publicos/docker/compose/retroarch
-mkdir -p /arquivos/publicos/docker/compose/retroarch/config
+mkdir -p /arquivos/publicos/docker/compose/emulatorjs
+mkdir -p /arquivos/publicos/docker/compose/emulatorjs/config
+mkdir -p /arquivos/publicos/docker/compose/emulatorjs/data
+mkdir -p /arquivos/publicos/docker/compose/emulatorjs/roms
 #[--------------------------------------------------------------------------------------------]
-cd /arquivos/publicos/docker/compose/retroarch/
+cd /arquivos/publicos/docker/compose/emulatorjs/
 #[--------------------------------------------------------------------------------------------]
-cat <<EOF > /arquivos/publicos/docker/compose/retroarch/compose.yaml
+cat <<EOF > /arquivos/publicos/docker/compose/emulatorjs/compose.yaml
 services:
-  retroarch:
-    image: lscr.io/linuxserver/retroarch:latest
-    container_name: retroarch
-    
+  emulatorjs:
+    image: lscr.io/linuxserver/emulatorjs:amd64-1.9.2
+    container_name: emulatorjs
+  
     environment:
-      - PUID=1001
-      - PGID=1001
-
+      PUID: 1001
+      PGID: 1001
+    
     volumes:
       - ./config:/config
-      - ./share/batocera/roms:/roms
+      - ./data:/data
+      - ./roms:/roms
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      
+              
     ports:
-      - 8085:3000
-      
-    shm_size: 1gb
-    
+      - 3000:3000
+      - 8092:80
+       
     labels:
       - homepage.group=Jogos
-      - homepage.name=RetroArch
-      - homepage.icon=retroarch.png
-      - homepage.href=http://localhost:8085
+      - homepage.name=emulatorjs
+      - homepage.icon=emulatorjs.png
+      - homepage.href=http://localhost:8092
       - homepage.description=Emuladores
         
     restart: unless-stopped

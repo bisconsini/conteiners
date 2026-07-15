@@ -1,9 +1,14 @@
-nginx 8080
-jellyfin 8081
-vaultwarden 8082
-gitea 8083 e 2222
-transmission 8084, 51413 e 51413/udp
-retroarch 8085
-phpmyadmin 8086
-nextcloud 8087
-homepage 8088
+nginx        8080 -> 80
+jellyfin     8081 -> 8096
+vaultwarden  8082 -> 80
+gitea        8083 -> 3000
+transmission 8084 -> 9091
+retroarch    8085 -> 3000
+phpmyadmin   8086 -> 80
+nextcloud    8087 -> 80
+homepage     8088 -> 3000
+portainer    8089 -> 9443
+navidrome    8090 -> 4533
+tailscale 
+gaseousgames 8091 -> 80
+dockge       8092 -> 5001

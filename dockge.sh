@@ -23,6 +23,13 @@ services:
       
     environment:
       - DOCKGE_STACKS_DIR=/arquivos/publicos/docker/compose
+      
+    labels:
+      - homepage.group=Administração
+      - homepage.name=Dockge
+      - homepage.icon=dockge.png
+      - homepage.href=http://localhost:8092
+      - homepage.description=Gerenciamento de containers Docker
     
     restart: unless-stopped
 EOF

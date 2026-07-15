@@ -28,5 +28,10 @@ services:
     restart: unless-stopped
 EOF
 #[--------------------------------------------------------------------------------------------]  
+cat <<EOF > /arquivos/publicos/docker/compose/homepage/config/docker.yaml
+my-docker:
+  socket: /var/run/docker.sock
+EOF
+#[--------------------------------------------------------------------------------------------]  
 docker compose config || exit 1
 docker compose up -d
