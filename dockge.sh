@@ -19,7 +19,7 @@ services:
       - /arquivos/publicos/docker/compose:/arquivos/publicos/docker/compose
       
     ports:
-      - 8092:5001
+      - 8093:5001
       
     environment:
       - DOCKGE_STACKS_DIR=/arquivos/publicos/docker/compose
@@ -28,7 +28,7 @@ services:
       - homepage.group=Administração
       - homepage.name=Dockge
       - homepage.icon=dockge.png
-      - homepage.href=http://localhost:8092
+      - homepage.href=http://localhost:8093
       - homepage.description=Gerenciamento de containers Docker
     
     restart: unless-stopped
