@@ -2,30 +2,27 @@
 
 set -e
 #[--------------------------------------------------------------------------------------------]
-mkdir -p /arquivos/publicos/docker/compose/navidrome/data
-cd /arquivos/publicos/docker/compose/navidrome/
+mkdir -p /arquivos/publicos/docker/compose/cloudflared/
+cd /arquivos/publicos/docker/compose/cloudflared/
 #[--------------------------------------------------------------------------------------------]
 docker network inspect homelab >/dev/null 2>&1 || \
 docker network create homelab
 #[--------------------------------------------------------------------------------------------]
 cat <<EOF > compose.yaml
-name: navidrome
+name: cloudflared
+
 services:
-  navidrome:
-    image: deluan/navidrome:latest
-    container_name: navidrome
-    environment:
-      TZ: America/Sao_Paulo
-      ND_ENABLEUSERREGISTRATION: "false"
-    volumes:
-      - ./data:/data
-      - /arquivos/publicos/musicas:/music:ro
-    ports:
-      - "8087:4533"
-    user: "1000:1000"
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+
+    command: tunnel --no-autoupdate run --token eyJhIjoiNDY1OGJmMmQzNTEzOGVkYjBjZTBhODE5MWVhY2I5ZWEiLCJ0IjoiZTA2ZGFjZWYtY2U1Ni00OTg5LThlZjYtMzkyYjQ0NGVjODY4IiwicyI6Ik1XRXlNbU0wWlRJdE16Y3pOUzAwTVRjM0xXSmtaV0l0WWpRMVl6QTBZMkU1WTJVNSJ9
+
+    restart: unless-stopped
+
     networks:
       - homelab
-    restart: unless-stopped
+
 networks:
   homelab:
     external: true
@@ -33,4 +30,4 @@ EOF
 #[--------------------------------------------------------------------------------------------]
 docker compose config || exit 1
 docker compose up -d
-echo "Navidrome instalado com sucesso!"
+echo "Cloudflared instalado com sucesso!"
